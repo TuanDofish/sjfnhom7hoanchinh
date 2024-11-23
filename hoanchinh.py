@@ -75,9 +75,17 @@ if st.sidebar.button("Tính toán"):
             "Thời gian lưu lại (ms)", "Thời gian chờ (ms)"
         ])
 
+        # Tính thời gian chờ trung bình và thời gian lưu lại trung bình
+        average_waiting_time = df["Thời gian chờ (ms)"].mean()
+        average_turnaround_time = df["Thời gian lưu lại (ms)"].mean()
+
         # Hiển thị bảng kết quả
         st.subheader("Kết quả:")
         st.dataframe(df)
+
+        # Hiển thị thời gian chờ trung bình và thời gian lưu lại trung bình
+        st.write(f"**Thời gian chờ trung bình:** {average_waiting_time:.2f} ms")
+        st.write(f"**Thời gian lưu lại trung bình:** {average_turnaround_time:.2f} ms")
 
         # Hiển thị biểu đồ Gantt
         st.subheader("Biểu đồ Gantt:")
